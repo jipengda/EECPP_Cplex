@@ -178,11 +178,10 @@ plt.show()
 #---------------------------------------------------------------
 # Get total_degrees and total_distance
 #---------------------------------------------------------------
-draw_edges =[i for i in edges if x_values[i].solution_value>0.9]
+draw_edges =[i for i in edges if x[i].solution_value>0.9]
 optimal_path=[0]    
 sad=0
 iteration = len(draw_edges)
-x=x_values
 for i in range(iteration):
 	for happy in NodesAndDeparturePoint:
     	if x[(sad, happy)].solution_value > 0.9:
