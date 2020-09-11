@@ -84,7 +84,10 @@ for i,j in edges:
 degrees={(i,j,k):0 for i,j,k in arcs}
 q={(i,j,k):0 for i,j,k in arcs}
 for i,j,k in arcs:
-    theta_radians=math.pi-np.arccos(round((distance[(i,j)]**2+distance[(j,k)]**2-distance[(i,k)]**2)/(2*distance[(i,j)]*distance[(j,k)]),2))
+    l1 = np.hypot(coord_x[i] - coord_x[j], coord_y[i] - coord_y[j]) # distance[(i,j)]
+    l2 = np.hypot(coord_x[j] - coord_x[k], coord_y[j] - coord_y[k]) # distance[(j,k)]
+    l3 = np.hypot(coord_x[i] - coord_x[k], coord_y[i] - coord_y[k]) # distance[(i,k)]
+    theta_radians=math.pi-np.arccos(round((l1**2+l2**2-l3**2)/(2*l1*l2),4))
     if math.isnan(theta_radians) is True:
         theta_radians = 0
     else:
@@ -215,3 +218,4 @@ for index in range(0, optimal_length-1):
 total_degrees = 0
 for index in range(0, optimal_length-2):
 	total_degrees = total_degrees + degrees[(optimal_path[index]),(optimal_path[index+1]),(optimal_path[index+2])]
+total_degrees = total_degrees + degrees[(optimal_path[optimal_length-2]),0,optimal_path[1]]
