@@ -174,6 +174,10 @@ plt.savefig("size 5 x 4.png")
 plt.show()
 
 
+
+#---------------------------------------------------------------
+# Get total_degrees and total_distance
+#---------------------------------------------------------------
 draw_edges =[i for i in edges if x_values[i].solution_value>0.9]
 optimal_path=[0]    
 sad=0
