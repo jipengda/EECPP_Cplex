@@ -182,12 +182,13 @@ draw_edges =[i for i in edges if x[i].solution_value>0.9]
 optimal_path=[0]    
 sad=0
 iteration = len(draw_edges)
-for i in range(iteration):
-	for happy in NodesAndDeparturePoint:
-    	if x[(sad, happy)].solution_value > 0.9:
-        	optimal_path.append(happy)
-            sad = happy
-            break
+#for i in range(iteration):
+#	for happy in NodesAndDeparturePoint:
+#        if x[(sad, happy)].solution_value > 0.9:
+#            optimal_path.append(happy)
+#            sad = happy
+#            break
+
 
 
 
