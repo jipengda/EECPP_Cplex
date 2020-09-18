@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 #------------------------------------------------------------------------------
 #Data
 #------------------------------------------------------------------------------
+
+#add obstalces part
 agentNumber = 10
 colNumber = 3
 rowNumber = 3
@@ -22,13 +24,16 @@ departurePoint = 0
 distance_lambda = 0.1164
 turn_gamma = 0.0173
 turn_gamma = 0.015
+obstacles=[]
+Nodes=[i for i in range(nodesNumber) if i not in obstacles and i!= departurePoint]
+NodesAndDeparturePoint = Nodes + [departurePoint]
+AllNodes = NodesAndDeparturePoint + obstacles
 radians_to_degrees = 180/(math.pi)
 distanceValue=0
 theta_radians=0
 theta_degrees=0
 agents = [(a) for a in range(agentNumber)]
-Nodes = range(1, nodesNumber) # Except departurePoint( arrival point is same as departurePoint)
-NodesAndDeparturePoint = [n for n in range(nodesNumber)]
+#Nodes = range(1, nodesNumber) # Except departurePoint( arrival point is same as departurePoint)
 agents_NodesAndDeparturePoint = [(a,n) for a in agents for n in NodesAndDeparturePoint]
 edges = [(i,j) for i in NodesAndDeparturePoint for j in NodesAndDeparturePoint ]
 agents_edges = [(a,i,j) for a in agents for i,j in edges]
@@ -37,6 +42,8 @@ agents_arcs = [(a,i,j,k) for a in agents for i,j,k in arcs]
 
 coord_x = Data.create_coord_x(colNumber, rowNumber)
 coord_y = Data.create_coord_y(colNumber, rowNumber)
+
+
 D=Data.create_D(nodesNumber, coord_x, coord_y)
 c = {(i,j):0 for i,j in edges}
 for i,j in edges:
