@@ -9,6 +9,7 @@ import Data
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+import random
 
 #------------------------------------------------------------------------------
 #supplementary functions
