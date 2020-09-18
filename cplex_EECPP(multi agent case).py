@@ -137,10 +137,14 @@ for o,p in edges:
         c[(o,p)] = math.inf
     else:
         pass
-
-
+    
+seq=[-10,-9,-8,-7,-6,-5,-4,-3-2,-1,0,1,2,3,4,5,6,7,8,9,10]
+fixed_turn_gamma=0.0173
+turn_factor=0.0001
+random.seed(10) 
 q={(i,j,k):0 for i,j,k in arcs}
 for i,j,k in arcs:
+#   turn_gamma = fixed_turn_gamma + random.choice(seq) * turn_factor
     theta_radians=math.pi-np.arccos(round((D[i][j]**2+D[j][k]**2-D[i][k]**2)/(2*D[i][j]*D[j][k]),2))
 #    if math.isnan(theta_radians) == True:
 #        theta_radians=0
