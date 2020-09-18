@@ -99,14 +99,14 @@ def RSIntersection(r_xmin,r_xmax,r_ymin, r_ymax, nodeA, nodeB, colNumber, rowNum
 
 #add obstalces part
 agentNumber = 10
-colNumber = 4
-rowNumber = 4
+colNumber = 5
+rowNumber = 5
 Battery_capacity_constraint = 11
 nodesNumber = colNumber * rowNumber
 departurePoint = 0
 distance_lambda = 0.1164
 turn_gamma = 0.0173
-obstacles=[12,13]
+obstacles=[4,5,9,10,11,14,15,16,17,20,21,22,23,24]
 Nodes=[i for i in range(nodesNumber) if i not in obstacles and i!= departurePoint]
 NodesAndDeparturePoint = Nodes + [departurePoint]
 AllNodes = NodesAndDeparturePoint + obstacles
@@ -145,7 +145,7 @@ turn_factor=0.0001
 random.seed(10) 
 q={(i,j,k):0 for i,j,k in arcs}
 for i,j,k in arcs:
-#   turn_gamma = fixed_turn_gamma + random.choice(seq) * turn_factor
+    turn_gamma = fixed_turn_gamma + random.choice(seq) * turn_factor
     theta_radians=math.pi-np.arccos(round((D[i][j]**2+D[j][k]**2-D[i][k]**2)/(2*D[i][j]*D[j][k]),2))
 #    if math.isnan(theta_radians) == True:
 #        theta_radians=0
